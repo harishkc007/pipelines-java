@@ -13,8 +13,6 @@ pool:
 
 steps:
 - task: Maven@3
-  condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/dev'), eq(variables['Build.SourceBranch'], 'refs/heads/test')))
-  continueOnError: false
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
