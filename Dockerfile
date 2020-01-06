@@ -13,7 +13,7 @@ FROM maven:3.6.1-jdk-8-alpine as base
 	################# Production Image #################
 	####################################################
 	FROM amazoncorretto:8u222 as run 
-	LABEL MAINTAINER Florian Tieben <Sreeni@daimler.com>
+	LABEL MAINTAINER sreeni <Sreeni@daimler.com>
 
 	EXPOSE 8080
 	
@@ -21,6 +21,6 @@ FROM maven:3.6.1-jdk-8-alpine as base
 	RUN adduser java --uid 1008
 	USER java
 	
-	COPY --from=base /opt/app/target/pipelines-java-*.jar /opt/pipelines-java.jar
-	CMD exec java $JAVA_OPTS -jar /opt/pipelines-java.jar
-	#ENTRYPOINT ["java", "-jar", "/opt/pipelines-java.jar"]
+	COPY --from=base /opt/app/target/helloworld *.jar /opt/helloworld.jar
+	CMD exec java $JAVA_OPTS -jar /opt/helloworld.jar
+	#ENTRYPOINT ["java", "-jar", "/opt/helloworld.jar"]
