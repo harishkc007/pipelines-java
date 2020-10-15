@@ -24,7 +24,7 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 - task: AzureRmWebAppDeployment@4
-   inputs:
+  inputs:
      ConnectionType: 'AzureRM'
      azureSubscription: 'ado'
      appType: 'webAppLinux'
